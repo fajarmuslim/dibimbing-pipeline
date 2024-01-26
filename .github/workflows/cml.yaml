@@ -24,8 +24,6 @@ jobs:
             git fetch origin main:main
           fi
 
-          dvc_report=$(dvc exp diff $PREVIOUS_REF --md)
-
           cat <<EOF > report.md
           # CML Report
           ## Plots
