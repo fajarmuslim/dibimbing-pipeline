@@ -30,13 +30,11 @@ jobs:
           ![ROC](./roc.svg)
           ![Precision-Recall](./prc.svg)
           ![Confusion Matrix](./confusion.svg)
-          #### Feature Importance: ${PREVIOUS_REF}
-          ![Feature Importance: ${PREVIOUS_REF}](./importance_previous.png)
+
           #### Feature Importance: workspace
           ![Feature Importance: workspace](./importance_workspace.png)
 
           ## Metrics and Params
-          ### ${PREVIOUS_REF} → workspace
           ${dvc_report}
           EOF
 
