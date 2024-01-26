@@ -24,23 +24,6 @@ jobs:
             git fetch origin main:main
           fi
 
-          dvc plots diff $PREVIOUS_REF workspace \
-            --show-vega --targets ROC | json5 > vega.json
-          vl2svg vega.json roc.svg
-
-          dvc plots diff $PREVIOUS_REF workspace \
-            --show-vega --targets Precision-Recall | json5 > vega.json
-          vl2svg vega.json prc.svg
-
-          dvc plots diff $PREVIOUS_REF workspace \
-            --show-vega --targets Confusion-Matrix | json5 > vega.json
-          vl2svg vega.json confusion.svg
-
-          cp eval/plots/images/importance.png importance_workspace.png
-
-          git checkout $PREVIOUS_REF -- dvc.lock
-          cp eval/plots/images/importance.png importance_previous.png
-
           dvc_report=$(dvc exp diff $PREVIOUS_REF --md)
 
           cat <<EOF > report.md
